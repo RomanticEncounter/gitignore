@@ -40,18 +40,18 @@ jobs:
       - name: Fetch upstream changes
         run: git fetch upstream --tags --force
 
-      - name: Checkout master branch
-        run: git checkout master  # 假设主分支为 main，如需修改请替换为实际分支名
+      - name: Checkout main branch
+        run: git checkout main  # 假设主分支为 main，如需修改请替换为实际分支名
 
       - name: Merge upstream changes
         run: |
           # 强制快进合并，避免非快进合并（失败时会终止工作流）
-          git merge --ff-only upstream/master
+          git merge --ff-only upstream/main
           # 如果允许非快进合并，可以注释掉上面的命令并取消下面的注释
-          # git merge upstream/master
+          # git merge upstream/main
 
       - name: Push changes to origin
-        run: git push origin master
+        run: git push origin main
 
       # - name: Cleanup remote
       #   run: git remote remove upstream  # 清理添加的临时远程
